@@ -50,6 +50,9 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
+-- Fast save
+vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save file" })
+
 vim.keymap.set("n", "<leader>pa", function()
 	local path = vim.fn.expand("%:p")
 	vim.fn.setreg("+", path)
@@ -57,17 +60,17 @@ vim.keymap.set("n", "<leader>pa", function()
 end, { desc = "Copy full file path" })
 
 vim.keymap.set("n", "<leader>e", function()
-  if require("zen-mode.view").is_open() then
-    require("zen-mode").close()
-  end
+	if require("zen-mode.view").is_open() then
+		require("zen-mode").close()
+	end
 
-  local api = require("nvim-tree.api")
+	local api = require("nvim-tree.api")
 
-  if api.tree.is_visible() then
-    api.tree.close()
-  else
-    api.tree.open()
-  end
+	if api.tree.is_visible() then
+		api.tree.close()
+	else
+		api.tree.open()
+	end
 end, { desc = "Toggle NvimTree (close Zen if active)" })
 
 -- Insert mode mappings
