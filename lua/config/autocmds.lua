@@ -66,3 +66,26 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.signcolumn = "no"
 	end,
 })
+
+-- Auto saving on focus change
+local group = vim.api.nvim_create_augroup("QuietAutoSave", { clear = true })
+
+vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
+	group = group,
+	callback = function()
+		-- 1. vim.bo.modified: файл был изменен
+		-- 2. vim.bo.buftype == "": это обычный файл (не терминал, не NvimTree, не Telescope)
+		-- 3. vim.fn.expand("%") ~= "": у файла есть имя (он не "No Name")
+		-- 4. vim.fn.filereadable: файл уже существует на диске (чтобы не сохранять новые пустые черновики без спроса)
+		if
+			vim.bo.modified
+			and vim.bo.buftype == ""
+			and vim.fn.expand("%") ~= ""
+			and vim.fn.filereadable(vim.fn.expand("%")) == 1
+		then
+			-- Используем silent! чтобы не спамить в статусную строку
+			-- update сохраняет только если файл был изменен (лучше чем write)
+			vim.cmd("silent! update")
+		end
+	end,
+})

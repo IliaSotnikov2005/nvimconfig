@@ -6,19 +6,14 @@ return {
 			move_in_saga = { prev = "<C-k>", next = "<C-j>" },
 			finder_action_keys = {
 				open = "<CR>",
-
-
-
-
-
-            },
+			},
 			definition_action_keys = {
 				edit = "<CR>",
 			},
 			lightbulb = {
-				sign = false, -- убрать значок в колонке
-				virtual_text = false, -- убрать виртуальный текст (если есть)
-				enable = false, -- полностью отключить (некоторые версии)
+				sign = false,
+				virtual_text = false,
+				enable = false,
 			},
 		})
 	end,
@@ -26,3 +21,4 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 	},
 }
+
