@@ -1,5 +1,5 @@
 -- ================================================================================================
--- TITLE : melange-nvim
+-- TITLE : nightfox-nvim
 -- ABOUT : A subtle, warm colorscheme for Neovim inspired by Sublime Text's Melange theme.
 -- LINKS :
 --   > github : https://github.com/savq/melange-nvim
@@ -33,7 +33,7 @@ return {
 				},
 				groups = {
 					duskfox = {
-						Visual = { bg = palette.bg1 },
+						Visual = { bg = palette.blue.base, fg = palette.bg1 },
 					},
 				},
 			})
