@@ -51,3 +51,5 @@ require("lazy").setup({
 	},
 	checker = { enabled = true },
 })
+
+vim.opt.termguicolors = true
