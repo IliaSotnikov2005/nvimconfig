@@ -53,3 +53,5 @@ require("lazy").setup({
 })
 
 vim.opt.termguicolors = true
+-- Настройка цвета виртуального текста подсказок
+vim.api.nvim_set_hl(0, "LspInlayHint", { fg = "#545c7e", italic = true, bg = "none" })
