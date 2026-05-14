@@ -1,1 +1,1 @@
-require("config.lazy")
+../../dotfiles/nvim/.config/nvim/init.lua

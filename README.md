@@ -1,2 +1,1 @@
-# nvimconfig
-My config for NoeVim
+../../dotfiles/nvim/.config/nvim/README.md
